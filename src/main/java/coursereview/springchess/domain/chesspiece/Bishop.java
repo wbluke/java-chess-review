@@ -10,6 +10,7 @@ import java.util.List;
 public class Bishop implements ChessPiece {
 
     private static final List<Direction> DIRECTIONS = Arrays.asList(Direction.NE, Direction.SE, Direction.SW, Direction.NW);
+    private static final String NAME = "B";
 
     @Override
     public boolean checkRule(final ChessPosition source, final ChessPosition target, final boolean isEnemyOnTarget) {
@@ -19,5 +20,10 @@ public class Bishop implements ChessPiece {
         } catch (DirectionNotFoundException e) {
             return false;
         }
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 }

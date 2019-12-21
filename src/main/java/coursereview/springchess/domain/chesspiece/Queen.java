@@ -11,6 +11,7 @@ public class Queen implements ChessPiece {
 
     private static final List<Direction> DIRECTIONS = Arrays.asList(Direction.N, Direction.NE, Direction.E, Direction.SE
             , Direction.S, Direction.SW, Direction.W, Direction.NW);
+    private static final String NAME = "Q";
 
     @Override
     public boolean checkRule(final ChessPosition source, final ChessPosition target, final boolean isEnemyOnTarget) {
@@ -20,5 +21,10 @@ public class Queen implements ChessPiece {
         } catch (DirectionNotFoundException e) {
             return false;
         }
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 }
