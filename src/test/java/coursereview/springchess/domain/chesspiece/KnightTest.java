@@ -1,6 +1,6 @@
 package coursereview.springchess.domain.chesspiece;
 
-import coursereview.springchess.domain.ChessPosition;
+import coursereview.springchess.domain.position.ChessPosition;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

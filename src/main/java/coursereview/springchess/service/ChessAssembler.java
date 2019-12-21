@@ -1,10 +1,10 @@
 package coursereview.springchess.service;
 
 import coursereview.springchess.domain.ChessGame;
-import coursereview.springchess.domain.ChessPosition;
 import coursereview.springchess.domain.chesspiece.ChessPiece;
 import coursereview.springchess.domain.chessplayer.BlackPlayer;
 import coursereview.springchess.domain.chessplayer.WhitePlayer;
+import coursereview.springchess.domain.position.ChessPosition;
 import coursereview.springchess.dto.ChessGameResponse;
 
 import java.util.HashMap;

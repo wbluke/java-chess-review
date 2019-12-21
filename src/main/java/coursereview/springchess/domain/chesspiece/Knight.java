@@ -1,8 +1,8 @@
 package coursereview.springchess.domain.chesspiece;
 
-import coursereview.springchess.domain.ChessPosition;
-import coursereview.springchess.domain.Direction;
 import coursereview.springchess.domain.exception.DirectionNotFoundException;
+import coursereview.springchess.domain.position.ChessPosition;
+import coursereview.springchess.domain.position.Direction;
 
 import java.util.Arrays;
 import java.util.List;

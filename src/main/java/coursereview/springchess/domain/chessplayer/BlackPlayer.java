@@ -1,7 +1,7 @@
 package coursereview.springchess.domain.chessplayer;
 
-import coursereview.springchess.domain.ChessPosition;
 import coursereview.springchess.domain.chesspiece.*;
+import coursereview.springchess.domain.position.ChessPosition;
 
 public class BlackPlayer extends ChessPlayer {
 

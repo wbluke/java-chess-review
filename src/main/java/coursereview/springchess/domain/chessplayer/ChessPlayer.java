@@ -1,7 +1,7 @@
 package coursereview.springchess.domain.chessplayer;
 
-import coursereview.springchess.domain.ChessPosition;
 import coursereview.springchess.domain.chesspiece.ChessPiece;
+import coursereview.springchess.domain.position.ChessPosition;
 
 import java.util.EnumMap;
 import java.util.Map;

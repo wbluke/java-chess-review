@@ -1,4 +1,4 @@
-package coursereview.springchess.domain;
+package coursereview.springchess.domain.position;
 
 import coursereview.springchess.domain.exception.DirectionNotFoundException;
 
