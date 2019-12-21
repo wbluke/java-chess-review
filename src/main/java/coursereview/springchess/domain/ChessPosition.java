@@ -1,6 +1,9 @@
 package coursereview.springchess.domain;
 
+import coursereview.springchess.domain.exception.ChessPositionNotFoundException;
+
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public enum ChessPosition {
     A1("a1"), A2("a2"), A3("a3"), A4("a4"), A5("a5"), A6("a6"), A7("a7"), A8("a8"),
@@ -47,6 +50,32 @@ public enum ChessPosition {
     private int calculateUnitDegree(final int number, final int gcd) {
         final int divider = (gcd == 0) ? Math.abs(number) : gcd;
         return number / divider;
+    }
+
+    public ChessPosition next(final Direction direction) {
+        final char nextX = moveToNext(INDEX_OF_WIDTH_POSITION, direction.getXDegree());
+        final char nextY = moveToNext(INDEX_OF_HEIGHT_POSITION, direction.getYDegree());
+
+        final String positionName = String.valueOf(nextX) + nextY;
+        return find(positionName);
+    }
+
+    private char moveToNext(final int indexOfPosition, final int degree) {
+        return (char) (position.charAt(indexOfPosition) + degree);
+    }
+
+    public boolean isTargetAdjacent(final ChessPosition target) {
+        Direction direction = calculateDirectionTo(target);
+        ChessPosition nextPosition = next(direction);
+
+        return nextPosition.equals(target);
+    }
+
+    public static ChessPosition find(final String position) {
+        return Arrays.stream(values())
+                .filter(chessPosition -> chessPosition.position.equalsIgnoreCase(position))
+                .findFirst()
+                .orElseThrow(ChessPositionNotFoundException::new);
     }
 
     public String getPosition() {

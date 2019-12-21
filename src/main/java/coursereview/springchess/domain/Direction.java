@@ -38,4 +38,12 @@ public enum Direction {
                 .findFirst()
                 .orElseThrow(DirectionNotFoundException::new);
     }
+
+    public int getXDegree() {
+        return xDegree;
+    }
+
+    public int getYDegree() {
+        return yDegree;
+    }
 }
