@@ -6,6 +6,7 @@ import coursereview.springchess.domain.position.ChessPosition;
 import coursereview.springchess.domain.position.Direction;
 
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 public class ChessPlayer {
@@ -54,5 +55,14 @@ public class ChessPlayer {
 
     private boolean doesNotReachOnTarget(final ChessPosition target, final ChessPosition nextPosition) {
         return !nextPosition.equals(target);
+    }
+
+    public List<ChessPosition> findMovablePositions(final ChessPosition source, final ChessPlayer oppositePlayer) {
+        if (doesNotContainPieceOn(source)) {
+            throw new SourcePieceNotFoundException();
+        }
+
+        ChessPiece chessPieceOnSource = pieces.get(source);
+        return null;
     }
 }

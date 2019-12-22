@@ -3,9 +3,8 @@ package coursereview.springchess.domain;
 import coursereview.springchess.domain.chessplayer.BlackPlayer;
 import coursereview.springchess.domain.chessplayer.ChessPlayer;
 import coursereview.springchess.domain.chessplayer.WhitePlayer;
-import coursereview.springchess.domain.exception.SourcePieceNotFoundException;
 import coursereview.springchess.domain.position.ChessPosition;
-import coursereview.springchess.domain.position.Direction;
+import coursereview.springchess.domain.position.MovablePositions;
 
 public class ChessGame {
 
@@ -17,18 +16,6 @@ public class ChessGame {
         this.whitePlayer = whitePlayer;
         this.blackPlayer = blackPlayer;
         this.isWhiteTurn = isWhiteTurn;
-    }
-
-    public WhitePlayer getWhitePlayer() {
-        return whitePlayer;
-    }
-
-    public BlackPlayer getBlackPlayer() {
-        return blackPlayer;
-    }
-
-    public boolean isWhiteTurn() {
-        return isWhiteTurn;
     }
 
     public void moveWith(final ChessPosition source, final ChessPosition target) {
@@ -44,5 +31,21 @@ public class ChessGame {
 
     private ChessPlayer getOppositeTurnPlayer() {
         return isWhiteTurn ? blackPlayer : whitePlayer;
+    }
+
+    public MovablePositions findCurrentMovablePositions() {
+        return isWhiteTurn ? new MovablePositions(whitePlayer, blackPlayer) : new MovablePositions(blackPlayer, whitePlayer);
+    }
+
+    public WhitePlayer getWhitePlayer() {
+        return whitePlayer;
+    }
+
+    public BlackPlayer getBlackPlayer() {
+        return blackPlayer;
+    }
+
+    public boolean isWhiteTurn() {
+        return isWhiteTurn;
     }
 }

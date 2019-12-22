@@ -5,7 +5,9 @@ import coursereview.springchess.domain.chesspiece.ChessPiece;
 import coursereview.springchess.domain.chessplayer.BlackPlayer;
 import coursereview.springchess.domain.chessplayer.WhitePlayer;
 import coursereview.springchess.domain.position.ChessPosition;
+import coursereview.springchess.domain.position.MovablePositions;
 import coursereview.springchess.dto.ChessGameResponse;
+import coursereview.springchess.dto.ChessMovablePositionResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +17,7 @@ public class ChessAssembler {
     private ChessAssembler() {
     }
 
-    public static ChessGameResponse toResponse(ChessGame chessGame) {
+    public static ChessGameResponse toGameResponse(ChessGame chessGame) {
         final WhitePlayer whitePlayer = chessGame.getWhitePlayer();
         final BlackPlayer blackPlayer = chessGame.getBlackPlayer();
         Map<ChessPosition, ChessPiece> whitePieces = whitePlayer.getPieces();
@@ -37,5 +39,9 @@ public class ChessAssembler {
 
             positionsOfPieces.put(key.getPosition(), signOfTeam + value.getName());
         }
+    }
+
+    public static ChessMovablePositionResponse toMovablePositionsResponse(final MovablePositions movablePositions) {
+        return null;
     }
 }
