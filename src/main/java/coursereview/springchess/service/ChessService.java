@@ -3,6 +3,7 @@ package coursereview.springchess.service;
 import coursereview.springchess.domain.ChessGame;
 import coursereview.springchess.domain.chessplayer.BlackPlayer;
 import coursereview.springchess.domain.chessplayer.WhitePlayer;
+import coursereview.springchess.domain.position.ChessPosition;
 import coursereview.springchess.dto.ChessGameResponse;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,14 @@ public class ChessService {
 
     public ChessGameResponse initBoard() {
         this.chessGame = new ChessGame(new WhitePlayer(), new BlackPlayer(), true);
+        return ChessAssembler.toResponse(chessGame);
+    }
+
+    public ChessGameResponse move(final String from, final String to) {
+        ChessPosition source = ChessPosition.find(from);
+        ChessPosition target = ChessPosition.find(to);
+
+        chessGame.moveWith(source, target);
         return ChessAssembler.toResponse(chessGame);
     }
 }

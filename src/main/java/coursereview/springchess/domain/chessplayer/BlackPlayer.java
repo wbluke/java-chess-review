@@ -3,6 +3,8 @@ package coursereview.springchess.domain.chessplayer;
 import coursereview.springchess.domain.chesspiece.*;
 import coursereview.springchess.domain.position.ChessPosition;
 
+import java.util.Map;
+
 public class BlackPlayer extends ChessPlayer {
 
     public BlackPlayer() {
@@ -19,5 +21,9 @@ public class BlackPlayer extends ChessPlayer {
             String position = String.valueOf(i) + 7;
             pieces.put(ChessPosition.find(position), new BlackPawn());
         }
+    }
+
+    public BlackPlayer(final Map<ChessPosition, ChessPiece> pieces) {
+        super(pieces);
     }
 }
